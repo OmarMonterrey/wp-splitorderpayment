@@ -6,7 +6,7 @@
      * Description: Allows your customers to split their payment between many of them.
      * Author: Omar Monterrey
      * Author URI: https://omarmonterrey.com/
-     * Plugin URI: https://omarmonterrey.com/
+     * Plugin URI: https://omarmonterrey.com/project/splitpayment
      * 
      * Text Domain: omsplitorderpayment
      * Domain Path: /languages
