@@ -1,0 +1,265 @@
+# Copyright (C) 2022 Omar Monterrey
+# This file is distributed under the same license as the Split Order's Payment plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Split Order's Payment 0.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/split-order-payment\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-05-05T02:21:52+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: omsplitorderpayment\n"
+
+#. Plugin Name of the plugin
+msgid "Split Order's Payment"
+msgstr "Compartir pagos en Pedidos"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://omarmonterrey.com/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Allows your customers to split their payment between many of them."
+msgstr "Le permite a sus clientes compartir los pagos de sus pedidos entre varios de ellos."
+
+#. Author of the plugin
+msgid "Omar Monterrey"
+msgstr ""
+
+#: core/admin.class.php:22
+msgid "Parent for this Order"
+msgstr "Padre de este Pedido"
+
+#: core/admin.class.php:39
+msgid "Split Payments for this Order"
+msgstr "Pagos Compartidos para este Pedido"
+
+#: core/ajax.class.php:21
+#: core/ajax.class.php:68
+msgid "Invalid or expired request, please try again."
+msgstr "Solicitud inválida o expirada, por favor intente de nuevo."
+
+#: core/ajax.class.php:26
+#: core/ajax.class.php:74
+#: core/publicpage.class.php:32
+msgid "Invalid order."
+msgstr "Pedido inválido."
+
+#: core/ajax.class.php:38
+msgid "%s is not a valid email."
+msgstr "%s no es un correo válido."
+
+#: core/ajax.class.php:40
+msgid "%s is already invited."
+msgstr "%s ya está invitado."
+
+#: core/ajax.class.php:79
+#: core/publicpage.class.php:37
+msgid "Invalid invitation."
+msgstr "Invitación inválida."
+
+#: core/ajax.class.php:90
+#: core/publicpage.class.php:54
+msgid "Payment method not instantiated."
+msgstr "Método de pago no inicializado."
+
+#: core/cart.class.php:19
+#: core/cart.class.php:20
+msgid "Split Payment Product"
+msgstr ""
+
+#: core/cart.class.php:58
+msgid "Amount should be equal to %s"
+msgstr "El monto debe ser igual a %s"
+
+#: core/cart.class.php:64
+msgid "Amount should be less than %s"
+msgstr "El monto debe ser menor que %s"
+
+#: core/cart.class.php:66
+msgid "Amount should be more than %s"
+msgstr "El monto debe ser mayor que %s"
+
+#: core/email.wc.php:8
+#: core/email.wc.php:11
+#: core/publicpage.class.php:17
+msgid "Split Payment Invitation"
+msgstr "Invitación de Pago Compartido"
+
+#: core/email.wc.php:9
+msgid "An email sent to customers when invited to split payment."
+msgstr "El correo enviado a los clientes invitados a realizar pagos compartidos."
+
+#: core/email.wc.php:12
+msgctxt "default email subject split payments invitations"
+msgid "[%s] Split Payment Invitation"
+msgstr "[%s] Invitación de Pago Compartido"
+
+#: core/method.wc.php:7
+#: core/method.wc.php:48
+msgid "Split Payment"
+msgstr "Pago Compartido"
+
+#: core/method.wc.php:8
+msgid "Allow customers to split their payment between many of them."
+msgstr "Le permite a sus clientes comparitr pagos entre varios de ellos."
+
+#: core/method.wc.php:9
+msgid "You will be able to invite payers once your order is placed."
+msgstr "Podrá invitar pagadores una vez el pedido esté realizado."
+
+#: core/method.wc.php:23
+msgid "Enable/Disable"
+msgstr "Habilitar/Deshabilitar"
+
+#: core/method.wc.php:25
+msgid "Allow Split Payment"
+msgstr "Permitir Pagos Compartidos"
+
+#: core/method.wc.php:29
+msgid "Allow Multiple Payments"
+msgstr "Permitir Múltiples Pagos"
+
+#: core/method.wc.php:31
+msgid "Allow invites to pay multiple times with a single invitation, (only works for custom amounts payments)"
+msgstr "Le permite a los invitados pagar varias veces con una misma invitación, (Sólo funciona con montos personalizados)"
+
+#: core/method.wc.php:33
+msgid "When unmarked, only one payment will be allowed per invite."
+msgstr "Cuando no esté marcado, solo un pago se permitirá por invitado."
+
+#: core/method.wc.php:37
+msgid "Payment List Privacy"
+msgstr "Privacidad de la lista de pagos"
+
+#: core/method.wc.php:39
+msgid "Show payment list to all invited customers"
+msgstr "Mostrar lista de pagos a todos los invitados"
+
+#: core/method.wc.php:41
+msgid "When unmarked, only the customer that places the order will see the payment list."
+msgstr "Cuando no esté marcado, solo el cliente que crea el pedido podrá ser la lista de pagos."
+
+#: core/method.wc.php:45
+msgid "Title"
+msgstr "Título"
+
+#: core/method.wc.php:47
+msgid "This controls the name the users see for this payment method."
+msgstr "Esto controla el nombre que los usuarios ven para este método de pago"
+
+#: core/method.wc.php:52
+msgid "Payment Type"
+msgstr "Tipo de Pago"
+
+#: core/method.wc.php:65
+msgid "You need to be logged in to be able to split payments."
+msgstr "Debes iniciar sesión para poder realizar pagos compartidos."
+
+#: core/method.wc.php:69
+msgid "Waiting split payment"
+msgstr "Esperando pagos compartidos"
+
+#: front/parts/invitations.php:1
+msgid "Invitations"
+msgstr "Invitaciones"
+
+#: front/parts/invitations.php:5
+msgid "Payer Name"
+msgstr "Nombre del Pagador"
+
+#: front/parts/invitations.php:6
+#: front/parts/made.php:5
+msgid "Payer Email"
+msgstr "Correo del Pagador"
+
+#: front/parts/invitations.php:26
+msgid "This order has no invitations."
+msgstr "Este pedido no tiene invitaciones."
+
+#: front/parts/invitations.php:32
+msgid "Send Payment Invitations"
+msgstr "Enviar Invitaciones de Pago"
+
+#: front/parts/invitations.php:38
+#: init.php:43
+msgid "Invite Email"
+msgstr "Correo del Invitado"
+
+#: front/parts/invitations.php:42
+#: init.php:44
+msgid "Invite Name"
+msgstr "Nombre del Invitado"
+
+#: front/parts/invitations.php:42
+#: init.php:44
+msgid "Optional"
+msgstr "Opcional"
+
+#: front/parts/invitations.php:47
+msgid "Add invitation"
+msgstr "Agregar Invitación"
+
+#: front/parts/invitations.php:48
+msgid "Send invitations"
+msgstr "Enviar invitaciones"
+
+#: front/parts/made.php:1
+msgid "Payments Made"
+msgstr "Pagos Hechos"
+
+#: front/parts/made.php:6
+msgid "Payment Amount"
+msgstr "Monto del Pago"
+
+#: front/parts/made.php:23
+msgid "This order has no payments made."
+msgstr "Este pedido no tiene pagos hechos."
+
+#: front/parts/made.php:30
+#: front/single_invitation.php:30
+msgid "Order Total"
+msgstr "Total del Pedido"
+
+#: front/parts/made.php:34
+#: front/single_invitation.php:34
+msgid "Payment Made"
+msgstr "Monto Pagado"
+
+#: front/parts/made.php:38
+#: front/single_invitation.php:38
+msgid "Payment Remaining"
+msgstr "Monto Pendiente"
+
+#: front/parts/pay.php:16
+msgid "Make Payment"
+msgstr "Realizar Pago"
+
+#: front/parts/pay.php:19
+msgid "You will be able to make only one payment, make sure the amount is correct."
+msgstr "Sólo se le permitirá realizar un pago, asegurese de que el monto sea el correcto."
+
+#: front/parts/pay.php:25
+msgid "Amount"
+msgstr "Monto"
+
+#. translators: %1$s Site title, %2$s Invitation link
+#: email/split-payment-invitation.php:12
+#: email/split-payment-invitation.plain.php:10
+msgid "You've been invited to pay part of an order in %1$s. Click here to make your payment: %2$s"
+msgstr "Ha recibido una invitación para pagar parte de una orden en %1$s. Haga click aquí para realizar su pago: %2$s"
+
+#: core/ajax.class.php:76
+#: front/single_invitation.php:45
+msgid "This order is marked as paid."
+msgstr "Esta orden está marcada como paga."
+
+#: core/ajax.class.php:101
+#: front/single_invitation.php:53
+msgid "This invitation is marked as paid."
+msgstr "Esta invitación está marcada como paga."
