@@ -30,28 +30,30 @@
             <?php if( $key == 'payment_method' ) continue; ?>
             <tr>
                 <th scope="row"><?php echo esc_html( $total['label'] ); ?></th>
-                <th><?=wp_kses_post( $total['value'] );?></th>
+                <th><?php echo wp_kses_post( $total['value'] ); ?></th>
             </tr>
         <?php endforeach; ?>
         <?php if ( $order->get_customer_note() ) : ?>
             <tr>
                 <th><?php esc_html_e( 'Note:', 'woocommerce' ); ?></th>
-                <th><?=wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) );?></th>
+                <th><?php echo wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) ); ?></th>
             </tr>
         <?php endif; ?>
         <tr>
-            <th scope="row"><?=__('Payment Made', 'omsplitorderpayment')?></th>
-            <th><?=wc_price($payment_done)?></th>
+            <th scope="row"><?php esc_html_e('Payment Made', 'omsplitorderpayment'); ?></th>
+            <th><?php echo esc_html( wc_price($payment_done) ); ?></th>
         </tr>
         <tr>
-            <th scope="row"><?=__('Payment Remaining', 'omsplitorderpayment')?></th>
-            <th><?=wc_price($payment_remaining)?></th>
+            <th scope="row"><?php esc_html_e('Payment Remaining', 'omsplitorderpayment'); ?></th>
+            <th><?php echo esc_html( wc_price($payment_remaining) ); ?></th>
         </tr>
     </tfoot>
 </table>
 <?php
     if( $order->is_paid() ){
-        echo '<div class="omsplitorderpayment-invitation-notice">'.__('This order is marked as paid.', 'omsplitorderpayment').'</div>';
+        printf('<div class="omsplitorderpayment-invitation-notice">%s</div>',
+            esc_html__('This order is marked as paid.', 'omsplitorderpayment')
+        );
     } else {
         if(
             !empty($payment_data->amount) # Invitation paid
@@ -59,7 +61,9 @@
             ( $gateway->get_option('allow-multiple-payments') != 'yes' || $gateway->get_option('payment-type') == 0 )
             /** Multiple payments not allowed OR payment type is equal parts */
         ){
-            echo '<div class="omsplitorderpayment-invitation-notice">'.__('This invitation is marked as paid.', 'omsplitorderpayment').'</div>';
+            printf('<div class="omsplitorderpayment-invitation-notice">%s</div>',
+                esc_html__('This invitation is marked as paid.', 'omsplitorderpayment')
+            );
         } else {
             include_once(__DIR__.'/parts/pay.php');
         }

@@ -14,28 +14,30 @@
     }
 
 ?>
-<h3><?=__('Make Payment', 'omsplitorderpayment')?></h3>
+<h3><?php esc_html_e('Make Payment', 'omsplitorderpayment'); ?></h3>
 <?php
     if( $gateway->get_option('payment-type') == 1 && $gateway->get_option('allow-multiple-payments') != 'yes' )
-        echo '<p class="multiplepayments-notice">'.__('You will be able to make only one payment, make sure the amount is correct.', 'omsplitorderpayment').'</p>';
+        printf('<p class="multiplepayments-notice">%s</p>',
+            esc_html__('You will be able to make only one payment, make sure the amount is correct.', 'omsplitorderpayment')
+        );
 ?>
 <form method="post" id="omsplitorderpayment-pay">
-    <input type="hidden" name="order" value="<?=$order->get_id()?>">
-    <input type="hidden" name="payment_key" value="<?=$payment_key?>">
+    <input type="hidden" name="order" value="<?php echo esc_attr($order->get_id()); ?>">
+    <input type="hidden" name="payment_key" value="<?php echo esc_attr($payment_key); ?>">
     <div class="input-field">
-        <label for="amount"><?=__('Amount', 'omsplitorderpayment')?></label>
+        <label for="amount"><?php esc_html_e('Amount', 'omsplitorderpayment'); ?></label>
         <input
             name="amount"
             type="number"
-            value="<?=$input_properties->value?>"
-            <?=$input_properties->readonly ? 'readonly' : ''?>
-            min="<?=$input_properties->min?>"
-            max="<?=$input_properties->max?>"
+            value="<?php echo esc_attr($input_properties->value); ?>"
+            <?php if($input_properties->readonly){echo 'readonly';} ?>
+            min="<?php echo esc_attr($input_properties->min); ?>"
+            max="<?php echo esc_attr($input_properties->max); ?>"
             required
             step="0.01"
         />
     </div>
     <div class="input-field">
-        <button class="button alt"><?=__('Make Payment', 'omsplitorderpayment')?></button>
+        <button class="button alt"><?php esc_html_e('Make Payment', 'omsplitorderpayment'); ?></button>
     </div>
 </form>

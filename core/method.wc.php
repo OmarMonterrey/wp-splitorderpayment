@@ -104,9 +104,10 @@
             foreach( $payment_list as $single_payment )
                 $payment_done += $single_payment->amount;
             if( isset($_POST['_cancel_invitation']) ){
-                $invitation = $payment_list[ $_POST['_cancel_invitation'] ];
+                $invitation_key = sanitize_text_field( $_POST['_cancel_invitation'] );
+                $invitation = $payment_list[ $invitation_key ];
                 if( !empty($invitation) && $invitation->amount == 0 ){
-                    unset( $payment_list[ $_POST['_cancel_invitation'] ] );
+                    unset( $payment_list[ $invitation_key ] );
                     update_post_meta( $order->get_id(), '_has_om_split_payment', $payment_list );
                 }
             }

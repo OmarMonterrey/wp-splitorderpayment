@@ -26,13 +26,14 @@
             return get_home_url(null, "/" . static::$slug . "/?order_id={$order_id}&payment={$payment_key}");
         }
         public function show_page(){
-            $order_id = $_GET['order_id'];
+            $order_id = sanitize_text_field($_GET['order_id']);
+            $order_id = intval( $order_id );
             $order = new \WC_Order( $order_id );
             if( !$order )
                 return $this->show_error( __('Invalid order.', 'omsplitorderpayment') );
 
             $payment_list = get_post_meta( $order->get_id(), '_has_om_split_payment', true ) ?: [];
-            $payment_key = $_GET['payment'];
+            $payment_key = sanitize_text_field($_GET['payment']);
             if( !isset($payment_list[ $payment_key ]) )
                 return $this->show_error( __('Invalid invitation.', 'omsplitorderpayment') );
             

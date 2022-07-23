@@ -1,4 +1,4 @@
-<h2><?=$this->get_option('title')?></h2>
+<h2><?php echo esc_html($this->get_option('title')); ?></h2>
 <?php
     if($order->get_user_id() == get_current_user_id()) {
         include_once( __DIR__.'/parts/invitations.php' );

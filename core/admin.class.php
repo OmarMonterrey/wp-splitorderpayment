@@ -19,8 +19,11 @@
         public function show_childrens($order){
             $parent_id = get_post_meta($order->get_id(), '_om_split_payment_parent', true);
             if( $parent_id ){
-                    echo "<h3>".__('Parent for this Order', 'omsplitorderpayment')."</h3>";
-                    printf('<a href="%s">Order #%s</a>', get_edit_post_link($parent_id) ,$parent_id);
+                    printf("<h3>%s</h3>", esc_html__('Parent for this Order', 'omsplitorderpayment'));
+                    printf('<a href="%s">Order #%s</a>',
+                        esc_attr(get_edit_post_link($parent_id)),
+                        esc_html__($parent_id)
+                    );
                 return;
             }
             $Q = new \WP_Query([
@@ -36,9 +39,12 @@
                 'fields' => 'ids'
             ]);
             if( count($Q->posts) ){
-                echo "<h3 style='margin-top:1em;'>".__('Split Payments for this Order', 'omsplitorderpayment')."</h3>";
+                printf('<h3 style="margin-top:1em;">%s</h3>', esc_html__('Split Payments for this Order', 'omsplitorderpayment'));
                 foreach( $Q->posts as $ID ){
-                    printf('<a href="%s">Order #%s</a>', get_edit_post_link($ID) ,$ID);
+                    printf('<a href="%s">Order #%s</a>',
+                        esc_attr(get_edit_post_link($ID)),
+                        esc_html__($ID)
+                    );
                 }
             }
         }

@@ -1,9 +1,9 @@
-<h3><?=__('Payments Made', 'omsplitorderpayment')?></h3>
+<h3><?php esc_html_e('Payments Made', 'omsplitorderpayment'); ?></h3>
 <table class="woocommerce-table">
     <thead>
         <tr>
-            <th><?=__('Payer Email', 'omsplitorderpayment')?></th>
-            <th><?=__('Payment Amount', 'omsplitorderpayment')?></th>
+            <th><?php esc_html_e('Payer Email', 'omsplitorderpayment'); ?></th>
+            <th><?php esc_html_e('Payment Amount', 'omsplitorderpayment'); ?></th>
         </tr>
     </thead>
     <tbody>
@@ -13,30 +13,30 @@
                 if( $single_payment->amount == 0 ) continue;
                 $count ++;
                 echo "<tr>";
-                    echo "<td>{$single_payment->email}</td>";
-                    echo "<td>".wc_price($single_payment->amount)."</td>";
+                    printf("<td>%s</td>", esc_html( $single_payment->email ));
+                    printf("<td>%s</td>", esc_html( wc_price( $single_payment->amount ) ));
                 echo "</tr>";
             }
         ?>
         <?php if( !$count ): ?>
             <tr>
-                <td colspan="2"><?=__('This order has no payments made.', 'omsplitorderpayment')?></td>
+                <td colspan="2"><?php esc_html_e('This order has no payments made.', 'omsplitorderpayment'); ?></td>
             </tr>
         <?php endif; ?>
     </tbody>
     <?php if( !empty($show_footer) ): ?>
         <tfoot>
             <tr>
-                <th scope="row"><?=__('Order Total', 'omsplitorderpayment')?></th>
-                <th><?=wc_price($order->get_total())?></th>
+                <th scope="row"><?php esc_html_e('Order Total', 'omsplitorderpayment'); ?></th>
+                <th><?php esc_html_e( wc_price($order->get_total()) ); ?></th>
             </tr>
             <tr>
-                <th scope="row"><?=__('Payment Made', 'omsplitorderpayment')?></th>
-                <th><?=wc_price($payment_done)?></th>
+                <th scope="row"><?php esc_html_e('Payment Made', 'omsplitorderpayment'); ?></th>
+                <th><?php esc_html_e( wc_price($payment_done) ); ?></th>
             </tr>
             <tr>
-                <th scope="row"><?=__('Payment Remaining', 'omsplitorderpayment')?></th>
-                <th><?=wc_price($payment_remaining)?></th>
+                <th scope="row"><?php esc_html_e('Payment Remaining', 'omsplitorderpayment'); ?></th>
+                <th><?php esc_html_e( wc_price($payment_remaining) ); ?></th>
             </tr>
         </tfoot>
     <?php endif; ?>

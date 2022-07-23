@@ -19,8 +19,8 @@
             try{
                 if( !wp_verify_nonce($_POST['nonce'], static::$nonce_key) )
                     throw new \Exception(__('Invalid or expired request, please try again.', 'omsplitorderpayment'), 1);
-
-                $order_id = intval( $_POST['order'] );
+                $order_id = sanitize_text_field( $_POST['order'] );
+                $order_id = intval( $order_id );
                 $order = new \WC_Order( $order_id );
                 if( !$order || $order->get_user_id() != get_current_user_id() )
                     throw new \Exception(__('Invalid order.', 'omsplitorderpayment'), 1);
@@ -31,13 +31,16 @@
                     $invited[] = $single->email;
                 }
 
-                $emails = $_POST['email'];
+                $emails = false;
+                if( !empty($_POST['email']) && is_array($_POST['email']) ){
+                    array_map('sanitize_text_field', $_POST['email']);
+                }
                 foreach($emails as $key => $email){
                     $email = filter_var(trim($email), FILTER_VALIDATE_EMAIL);
                     if( !$email )
-                        throw new \Exception( sprintf(__('%s is not a valid email.' ,'omsplitorderpayment'), $email) , 1);
+                        throw new \Exception( sprintf(esc_html__('%s is not a valid email.' ,'omsplitorderpayment'), $email) , 1);
                     if( in_array($email, $invited) )
-                        throw new \Exception( sprintf(__('%s is already invited.' ,'omsplitorderpayment'), $email) , 1);
+                        throw new \Exception( sprintf(esc_html__('%s is already invited.' ,'omsplitorderpayment'), $email) , 1);
                     $payment_key = md5( $email );
                     $payment_list[ $payment_key ] = (object) [
                         'email' => $email,
@@ -67,8 +70,8 @@
                 if( !wp_verify_nonce($_POST['nonce'], static::$nonce_key) )
                     throw new \Exception(__('Invalid or expired request, please try again.', 'omsplitorderpayment'), 1);
 
-                $order_id = intval( $_POST['order'] );
-                $amount = floatval( $_POST['amount'] );
+                $order_id = intval( sanitize_text_field($_POST['order']) );
+                $amount = floatval( sanitize_text_field($_POST['amount']) );
                 $order = new \WC_Order( $order_id );
                 if( !$order )
                     throw new \Exception(__('Invalid order.', 'omsplitorderpayment'), 1);
@@ -76,7 +79,7 @@
                     throw new \Exception(__('This order is marked as paid.', 'omsplitorderpayment'), 1);
 
                 $payment_list = get_post_meta( $order->get_id(), '_has_om_split_payment', true ) ?: [];
-                $payment_key = $_POST['payment_key'];
+                $payment_key = sanitize_text_field($_POST['payment_key']);
                 if( !isset($payment_list[$payment_key])  )
                     throw new \Exception(__('Invalid invitation.', 'omsplitorderpayment'), 1);
 
